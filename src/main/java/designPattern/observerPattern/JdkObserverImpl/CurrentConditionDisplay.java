@@ -1,7 +1,5 @@
 package designPattern.observerPattern.JdkObserverImpl;
 
-import designPattern.observerPattern.DisplayElement;
-
 import java.util.Observable;
 import java.util.Observer;
 
@@ -10,7 +8,7 @@ import java.util.Observer;
  * jdk实现
  * Created by yang.zhang on 2017/3/16.
  */
-public class CurrentConditionDisplay implements Observer,DisplayElement {
+public class CurrentConditionDisplay implements Observer {
 
     Observable observable;
     private float temperature;

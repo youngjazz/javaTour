@@ -1,10 +1,12 @@
 package designPattern.observerPattern;
 
 /**
- * Created by leon on 2017/3/9.
+ * DESCRIPTION：TODO
+ *
+ * @author zhangyang 2018/3/5 18:08
  */
 public interface Subject {
-    void registerObserver(Observer observer);
-    void removeObserver(Observer observer);
-    void notifyObservers();
+	void registerObserver(Observer o);
+	void removeObserver(Observer o);
+	void notifyObservers();
 }

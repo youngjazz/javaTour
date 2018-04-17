@@ -1,27 +1,15 @@
 package util;
 
-import org.apache.http.Consts;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
+import com.alibaba.fastjson.JSON;
+import org.apache.http.*;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.config.ConnectionConfig;
-import org.apache.http.config.MessageConstraints;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
-import org.apache.http.config.SocketConfig;
+import org.apache.http.client.methods.*;
+import org.apache.http.config.*;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLContextBuilder;
-import org.apache.http.conn.ssl.SSLContexts;
-import org.apache.http.conn.ssl.TrustStrategy;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
+import org.apache.http.conn.ssl.*;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -31,12 +19,7 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLException;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
+import javax.net.ssl.*;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
@@ -325,11 +308,25 @@ public class HttpClientUtils {
 		return httpclient.execute(httpost);
 	}
 
-	public static void main(String[] args) {
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("url", "http://www.baidu.com");
-		String content = connectPostHttps("http://dwz.cn/create.php", params);
-		System.out.println(content);
+	public static void main(String[] args) throws IOException {
+
+		String url = "http://www.baidu.com";
+//		Map<String, String> params = new HashMap<String, String>();
+//		params.put("url", "http://www.baidu.com");
+//		String content = connectPostHttps("http://dwz.cn/create.php", params);
+//		System.out.println(content);
+
+		HttpHead head = new HttpHead(url);
+		HttpResponse response = httpclient.execute(head);
+		System.out.println(JSON.toJSON(response));
+
+		HttpTrace trace = new HttpTrace(url);
+//		response = httpclient.execute(trace);
+//		System.out.println(JSON.toJSON(response));
+
+		HttpOptions options = new HttpOptions(url);
+		response = httpclient.execute(options);
+		System.out.println(JSON.toJSON(response));
 	}
 
 }

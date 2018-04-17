@@ -10,7 +10,8 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 public class RedisUtil {
     //Redis 服务器
-    private static String ADDR = "127.0.0.1";
+//    private static String ADDR = "127.0.0.1";
+    private static String ADDR = "106.14.149.133";
     //Redis 端口号
     private static int PORT = 6379;
     //访问秘密
@@ -71,6 +72,11 @@ public class RedisUtil {
         if(jedis != null){
             jedis.close();
         }
+    }
+
+    public static void main(String[] args) {
+        Jedis jedis = RedisUtil.getJedis();
+        jedis.get("name");
     }
 
 }

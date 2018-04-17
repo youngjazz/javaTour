@@ -2,8 +2,6 @@ package callBack;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by leon on 2017/4/16.
  */

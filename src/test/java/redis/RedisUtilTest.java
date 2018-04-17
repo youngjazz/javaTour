@@ -19,10 +19,9 @@ public class RedisUtilTest {
 
     @Before
     public void setup(){
-        jedis = new Jedis("127.0.0.1",6379);
+        jedis = new Jedis("106.14.149.133",6379);
 
-
-//        jedis = RedisUtil.getJedis();
+       // jedis = RedisUtil.getJedis();
     }
 
     @Test
