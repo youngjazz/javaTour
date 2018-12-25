@@ -1,0 +1,26 @@
+@startuml
+
+skinparam backgroundColor #FFF
+skinparam handwritten true
+
+note as N1
+ 阻塞队列实现的生产消费模式
+end note
+
+class PCData{
+    - initData : int
+    + getData(): int
+}
+
+BlockingQueue .down.> PCData
+
+Consumer o-right-> BlockingQueue
+Consumer .down.> PCData
+Producer o-left-> BlockingQueue
+Producer ..> PCData
+
+Main ..> Consumer
+Main ..> Producer
+Main ..> BlockingQueue
+
+@enduml

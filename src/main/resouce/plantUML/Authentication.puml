@@ -1,0 +1,26 @@
+@startuml
+
+skinparam backgroundColor #FFF
+skinparam handwritten true
+
+actor Alice
+Alice-> Bob:123
+activate Bob
+Bob --> Alice:wocao
+deactivate Bob
+Bob -> Bob:给自己发消息
+Alice -> Bob:anthoer request
+activate Bob
+
+Bob -> Tom:信息调用
+activate Tom
+
+Tom --> Bob:return
+deactivate Tom
+
+Bob --> Alice:return
+deactivate Bob
+
+
+
+@enduml
