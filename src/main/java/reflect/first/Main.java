@@ -25,7 +25,7 @@ public class Main {
 			Map map = buildCreditCallbackParamsMap(student);
 			System.out.println(map);
 			Map map1 = buildCreditCallbackParamsMap(clazz);
-			System.out.println(map);
+			System.out.println(map1);
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
