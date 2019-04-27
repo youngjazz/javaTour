@@ -1,22 +1,15 @@
-package concurrent.ThreadPool.userDefindThreadPool;
+package jvm.reflect.first;
 
 /**
- * Created by zhangyang on 2017/9/9.
+ * Created by zhangyang on 2017/9/6.
  */
-public class Mytask implements Runnable{
-
+public class Student {
 	private int id;
-
 	private String name;
 
-	public Mytask(int id, String name) {
+	public Student(int id, String name) {
 		this.id = id;
 		this.name = name;
-	}
-
-	@Override
-	public void run() {
-		System.out.println(id+" run:"+name);
 	}
 
 	public int getId() {

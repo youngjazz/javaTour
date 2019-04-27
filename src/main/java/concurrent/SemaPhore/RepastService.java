@@ -1,8 +1,5 @@
 package concurrent.SemaPhore;
 
-import com.sun.org.apache.regexp.internal.RE;
-
-import java.util.PriorityQueue;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
