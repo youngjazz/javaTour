@@ -18,4 +18,8 @@ public class Teacher implements CallBack {
     public void tellAnswer(String answer) {
         System.out.println("知道了，你的答案是："+answer);
     }
+
+    public String test(String s){
+        return s;
+    }
 }
