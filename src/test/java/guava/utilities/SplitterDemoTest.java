@@ -1,17 +1,15 @@
 package guava.utilities;
 
 import com.google.common.base.Splitter;
-import com.sun.org.apache.regexp.internal.RE;
 import org.junit.Test;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * description:
