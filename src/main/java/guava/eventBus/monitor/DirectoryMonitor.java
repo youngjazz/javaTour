@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
@@ -25,14 +27,22 @@ public class DirectoryMonitor implements Monitor{
 
     private WatchService watchService;
 
-    public DirectoryMonitor(EventBus eventBus, Path path) {
-        this.eventBus = eventBus;
-        this.path = path;
+    public DirectoryMonitor(EventBus eventBus, final String path) {
+        this(eventBus, path, "");
     }
+
+    public DirectoryMonitor(EventBus eventBus, final String path, final String... morePath) {
+        this.eventBus = eventBus;
+        this.path = Paths.get(path, morePath);
+    }
+
+
 
     @Override
     public void startMonitor() throws Exception {
         this.watchService = FileSystems.getDefault().newWatchService();
+        this.path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE,StandardWatchEventKinds.ENTRY_MODIFY,StandardWatchEventKinds.ENTRY_DELETE);
+        log.info("The directory [{}] is monitoring...", path);
         this.start = true;
         while (start){
             WatchKey watchKey = watchService.take();

@@ -1,0 +1,19 @@
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Arrays;
+
+/**
+ * @author 张洋
+ * @date: 2019-09-19 17:49
+ */
+@Slf4j
+public class logTest {
+    public static void main(String[] args) {
+        String ss = "285781646130792,285762440663675,285757447082375,285776003218879,285781647179576,285761348320711,285781646130801,285761629072222,285781646130797,285763251475975,285781646130789,285781646917384,285775634381445,285775633332530,285781647179591,285775645116905,285781646917378,285781647179585,285775633594687,285781647179593,285775645116883,285781647179582,285775644854660,285781646655213,285778563305283";
+        StringBuilder stringBuilder = new StringBuilder();
+        Arrays.stream(ss.split(",")).forEach(orderId->{
+            stringBuilder.append("||message:\""+orderId+"\"");
+        });
+        System.out.println(stringBuilder.toString());
+    }
+}

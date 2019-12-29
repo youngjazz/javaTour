@@ -6,7 +6,7 @@ import com.google.common.base.Optional;
 /**
  * Created by leon on 2018-12-13
  */
-public class OptonalDemo {
+public class OptionalDemo {
     public static void main(String[] args) {
         Integer value1 = null;
         Integer value2 = new Integer(10);
@@ -18,8 +18,8 @@ public class OptonalDemo {
     }
 
     private static Integer sum(Optional<Integer> a, Optional<Integer> b) {
-        System.out.println("First paramter is present:" + a.isPresent());
-        System.out.println("Second paramter is present:" + b.isPresent());
+        System.out.println("First parameter is present:" + a.isPresent());
+        System.out.println("Second parameter is present:" + b.isPresent());
 
         Integer v1 = a.or(0);
         Integer v2 = b.get();
