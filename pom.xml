@@ -242,12 +242,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.zhongan</groupId>
-            <artifactId>za-gateway-common-share</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-
 
         <dependency>
             <groupId>com.baidu.aip</groupId>
